@@ -1,0 +1,59 @@
+.woocommerce div.product div.images, 
+.woocommerce-page div.product div.images, 
+.woocommerce #content div.product div.images, 
+.woocommerce-page #content div.product div.images {
+	width: 32% !important;
+}
+
+.woocommerce div.product div.summary, 
+.woocommerce-page div.product div.summary, 
+.woocommerce #content div.product div.summary, 
+.woocommerce-page #content div.product div.summary {
+	width: 62% !important;
+}
+
+.woocommerce .related ul li.product, .woocommerce .related ul.products li.product, .woocommerce .upsells.products ul li.product, .woocommerce .upsells.products ul.products li.product, .woocommerce-page .related ul li.product, .woocommerce-page .related ul.products li.product, .woocommerce-page .upsells.products ul li.product, .woocommerce-page .upsells.products ul.products li.product {
+	width: 20% !important;
+}
+
+.woocommerce div.product div.images div.thumbnails a, .woocommerce-page div.product div.images div.thumbnails a, .woocommerce #content div.product div.images div.thumbnails a, .woocommerce-page #content div.product div.images div.thumbnails a {
+	width: 15% !important;
+}
+
+.woocommerce a.added_to_cart, .woocommerce-page a.added_to_cart {
+	margin-left: 30px !important;
+}
+
+.woocommerce-page p:last-child {
+    margin-bottom: 25px !important;
+}
+
+.woocommerce-page #main {
+    background: #f6f6f6 !important;
+}
+
+/**
+ * Tabs
+ */
+
+.woocommerce #content div.product .woocommerce-tabs ul.tabs, .woocommerce div.product .woocommerce-tabs ul.tabs, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs, .woocommerce-page div.product .woocommerce-tabs ul.tabs {
+	margin-bottom: 0 !important;
+}
+
+.woocommerce #content div.product .woocommerce-tabs .panel, .woocommerce div.product .woocommerce-tabs .panel, .woocommerce-page #content div.product .woocommerce-tabs .panel, .woocommerce-page div.product .woocommerce-tabs .panel {
+	background: #fff !important;
+	padding: 30px !important;
+}
+
+/**
+ * Tables
+ */
+
+.woocommerce table, .woocommerce-page table {
+	background: #fff !important;
+}
+
+#content .woocommerce {
+	font-size: 13px;
+	font-family: Lato, sans-serif;
+}

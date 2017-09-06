@@ -1,0 +1,215 @@
+//*******************************************
+// Custom Icon Animation .JS Fragment File
+//-------------------------------------------
+// This is loaded by main.js based on the dynamic feed. 
+// Sample values for local testing are at the bottom of index.html
+// See main.js for other vars/functions, but do not modify main.js
+//*****************************************************************
+var iconAnimationName = "Icon Pins Across Water"; // Replace this with the icon/animation name
+var iconAnimationVersion = 1.5; // Replace this with your version name
+var spriteSheetName = "spritesheet_pins_across_the_water.png";
+var spriteSheet = new Image();
+
+// For rescaling the sprite animations on other unit sizes 
+// like 160x600, 300x600, 728x90 & 336x280
+var iconUnitScale = 1; // We compute scale = 1 based on 300x250
+var iconRegistrationX = 0; // Null registration point of animation. Adjust as needed on other unit sizes (728x90, 160x600 etc)
+var iconRegistrationY = 0; // 0, 0 is based on the 300x250
+
+// From Dynamic API
+// Is 1 by default. Change accordingly
+var iconAnimationStartTime = parseFloat(dynamicContent.Google_Tangram_Feed__LATAM__All_Regions__Q32015_Sheet1[0].Start_Time_Icon_Animation); //Start_Time_Icon_Animation
+var copyBatch2StartTime = parseFloat(dynamicContent.Google_Tangram_Feed__LATAM__All_Regions__Q32015_Sheet1[0].Start_Time_Text_2); //Start_Time_Icon_Animation
+
+//****************************************************
+// PUT YOUR CUSTOM CODE BELOW 
+// You can delete everything between the dotted lines
+//****************************************************
+//-----------------------------------------------------------------
+
+//*******************************
+//	DEFINE YOUR GLOBAL VARS HERE
+//*******************************
+// Sample code below is safe to delete
+// var exampleSprites = []; // example container for array of sprites
+
+var bottomTriangles = [], pins = [], pinParts = []; // icon shape holders
+var bottomTriangleCount = 3, pinCount = 2, pinPartCount = 12;
+
+var bottomTriangleStartX = [423, 495, 730];
+var bottomTriangleStartY = [54,  54,  37];
+
+var bottomTriangleEndX = [491, 528, 515];
+var bottomTriangleEndY = [37,  37, 37];
+
+var bottomTriangleEndX2 = [441, 478, 517];
+var bottomTriangleEndY2 = [37,  37,  37];
+
+var pinset1Dock1Start = iconAnimationStartTime + 1.8;
+var pinset1Dock1Duration = 0.8;
+var pinset1Dock2Start = copyBatch2StartTime + 0.9;
+var pinset1Dock2Duration = 1.1;
+var pinset2Dock2Start = copyBatch2StartTime + 1;
+var pinset2Dock2Duration = 1.6;
+
+var pinStartX = [512, 782];
+var pinStartY = [10, 17];
+var pinEndX = [462, 567];
+var pinEndY = [10, 17];
+
+var pinPartStartX = [493, 521, 549, 493, 521, 556, 480, 562, 480, 521, 563, 521];
+var pinPartStartY = [4,   4,   4,   19,  32,  19,  19,  19,  43,  56, 43,  71];
+
+var pinPartEndX = [513, 522, 530, 512, 521, 530, 512, 531, 513, 521, 530, 521];
+var pinPartEndY = [10,  11,  10,  19,  19,  19,  20,  20,  37,  37,  37,  46];
+
+//*******************************
+// Dynamically create your icon DIV sprite holders here
+// Inside is just sample code, safe to delete
+//*******************************
+function createIconParts()
+{
+	var tempElement;
+	var iconHolder = $("#iconHolder");
+	var i = 0;
+	var tempX = 0, tempY = 0;
+
+	// Create bottom triangles
+	for (i = 0; i < bottomTriangleCount; i ++)
+	{
+		tempElement =  document.createElement("div");
+		tempElement.setAttribute("id", "bottomTri" + i);
+		tempElement.setAttribute("class", "sprite bottomTriangle" + i);
+		iconHolder.appendChild(tempElement);
+		bottomTriangles[i] = tempElement;
+		if (i < 2)
+		{
+			TweenLite.to(bottomTriangles[i], 0, {x:bottomTriangleStartX[i], y:bottomTriangleStartY[i], opacity:0});
+		}
+		else
+		{
+			TweenLite.to(bottomTriangles[i], 0, {x:bottomTriangleStartX[i], y:bottomTriangleStartY[i], opacity:1});
+		}
+	}
+
+	// Create pin parts
+	for (i = 0; i < pinPartCount; i ++)
+	{
+		tempElement =  document.createElement("div");
+		tempElement.setAttribute("id", "pinFragment" + i);
+		tempElement.setAttribute("class", "sprite pinPart" + i);
+		pinParts[i] = tempElement;
+		TweenLite.to(pinParts[i], 0, {x:pinPartStartX[i], y:pinPartStartY[i], opacity:0});
+	}
+
+	// Attach pinParts with proper z-index sorting order
+	iconHolder.appendChild(pinParts[11]);
+	iconHolder.appendChild(pinParts[10]);
+	iconHolder.appendChild(pinParts[8]);
+	iconHolder.appendChild(pinParts[9]);
+	iconHolder.appendChild(pinParts[7]);
+	iconHolder.appendChild(pinParts[6]);
+	iconHolder.appendChild(pinParts[4]);
+	iconHolder.appendChild(pinParts[5]);
+	iconHolder.appendChild(pinParts[3]);
+	iconHolder.appendChild(pinParts[1]);
+	iconHolder.appendChild(pinParts[2]);
+	iconHolder.appendChild(pinParts[0]);
+
+	// Create solid pins
+	for (i = 0; i < pinCount; i ++)
+	{
+		tempElement =  document.createElement("div");
+		tempElement.setAttribute("id", "pin" + i);
+		tempElement.setAttribute("class", "sprite pinSolid");
+		iconHolder.appendChild(tempElement);
+		pins[i] = tempElement;
+		if (i == 0)
+		{
+			TweenLite.to(pins[i], 0, {x:pinStartX[i], y:pinStartY[i], opacity:0});
+		}
+		else
+		{
+			TweenLite.to(pins[i], 0, {x:pinStartX[i], y:pinStartY[i], opacity:1});
+		}
+	}
+
+	
+}
+
+//********************************
+// Define your animations here.
+// Sample code inside is safe to delete.
+//********************************
+function initIconAnimations()
+{
+	// Define TimelineLite Markers
+	tlIcon.addLabel("startIconAnimation", iconAnimationStartTime + 0.7);
+	tlIcon.addLabel("showPinSolid", iconAnimationStartTime + 1.7);
+	tlIcon.addLabel("hidePinParts", pinset1Dock1Start);
+	tlIcon.addLabel("dockPinTriangles", pinset1Dock1Start);
+	tlIcon.addLabel("pinset1Dock2", pinset1Dock2Start);
+	tlIcon.addLabel("pinset2Dock2", pinset2Dock2Start);
+
+	// Animation Definitions
+	dockPinParts()
+	tlIcon.to(pins[0], 0.1, {opacity:1}, "showPinSolid");
+	hidePinParts();
+	tlIcon.to(pins[0], pinset1Dock1Duration, {y:pinEndY[0], ease:Power3.easeInOut}, "dockPinTriangles");
+	tlIcon.to([bottomTriangles[0], bottomTriangles[1]], pinset1Dock1Duration, {y:bottomTriangleEndY2[1], ease:Power3.easeInOut}, "dockPinTriangles");
+	tlIcon.to(pins[0], pinset1Dock2Duration, {x:pinEndX[0], ease:Power3.easeInOut}, "pinset1Dock2");
+	tlIcon.to(bottomTriangles[0], pinset1Dock2Duration, {x:bottomTriangleEndX2[0], ease:Power3.easeInOut}, "pinset1Dock2");
+	tlIcon.to(bottomTriangles[1], pinset1Dock2Duration, {x:bottomTriangleEndX2[1], ease:Power3.easeInOut}, "pinset1Dock2");
+	tlIcon.to(pins[1], pinset2Dock2Duration, {x:pinEndX[1], ease:Power4.easeInOut}, "pinset2Dock2");
+	tlIcon.to(bottomTriangles[2], pinset2Dock2Duration, {x:bottomTriangleEndX2[2], ease:Power4.easeInOut}, "pinset2Dock2");
+	// End Animation
+}
+
+function dockPinParts()
+{
+	var i = 0;
+	for (i = 0; i < pinPartCount; i ++)
+	{
+		tlIcon.to(pinParts[i], 0.3, {opacity:1}, "startIconAnimation");
+		tlIcon.to(pinParts[i], 1, {x:pinPartEndX[i], y:pinPartEndY[i], ease:Power3.easeInOut}, "startIconAnimation");
+	}
+
+	for (i = 0; i < 2; i ++)
+	{
+		tlIcon.to(bottomTriangles[i], 0.3, {opacity:1}, "startIconAnimation");
+		tlIcon.to(bottomTriangles[i], 1, {x:bottomTriangleEndX[i], y:bottomTriangleEndY[i], ease:Power3.easeInOut}, "startIconAnimation");
+	}
+
+}
+
+function hidePinParts()
+{
+	var i = 0;
+	for (i = 0; i < pinPartCount; i ++)
+	{
+		tlIcon.to(pinParts[i], 0, {opacity:0}, "hidePinParts");
+	}
+}
+
+// Create and initialize icon parts + animation
+createIconParts();
+initIconAnimations();
+
+//-----------------------------------------------------------------
+//**************************
+// DO NOT TOUCH CODE BELOW
+//*************************
+console.log("Animation: " + iconAnimationName + " ver " + iconAnimationVersion);
+console.log("-----");
+
+// play animation once spritesheet is confirmed to have loaded
+function onSpriteSheetLoad(e)
+{
+	// startAnimations is called from main.js
+	// it will play the main timeline (tl)
+	// + your icon timeline (tlIcon) at the same time
+	startAnimations(); // STARTS THE ENTIRE UNIT ANIMATION when SpriteSheet is loaded
+}
+
+spriteSheet.addEventListener("load", onSpriteSheetLoad, false);
+spriteSheet.src = spriteSheetName;

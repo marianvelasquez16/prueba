@@ -1,0 +1,229 @@
+/******************************************
+Replace with your custom spritesheet name
+******************************************/
+.sprite {
+	background: url("spritesheet_pins_across_the_water.png") no-repeat;
+}
+
+/************************************
+ Used by unified index.html + main.js
+ DO NOT TOUCH.
+ ***********************************/
+
+/* The 5 end screen shapes */
+.triangle1 {
+	background-position: 0px 0px;
+	width: 60px;
+	height: 90px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.triangle2 {
+	background-position: -60px 0px;
+	width: 90px;
+	height: 90px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.triangle3 {
+	background-position: 0px -90px;
+	width: 150px;
+	height: 90px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.diamond {
+	background-position: -151px -120px;
+	width: 90px;
+	height: 90px;
+    -ms-transform-origin: 45px 45px;
+    -webkit-transform-origin: 45px 45px;
+    transform-origin: 45px 45px;
+}
+
+.parallelogram {
+	background-position: -150px 0px;
+	width: 60px;
+	height: 120px;
+    -ms-transform-origin: 15px 15px;
+    -webkit-transform-origin: 15px 15px;
+    transform-origin: 15px 15px;
+}
+
+.logoColored {
+    background-position: -250px -140px;
+    left: 640px;
+    top: 57px;
+    width: 75px;
+    height: 25px;
+    opacity: 1;
+}
+
+.logoWhite {
+    background-position: -350px -140px;
+    left: 640px;
+    top: 57px;
+    width: 75px;
+    height: 25px;
+    opacity: 0;
+}
+
+/* The 4 CTA button shapes */
+.ctaTriLeft {
+   background-position: -400px -15px;
+   left: 421px;
+   top: 40px;
+   width: 53px;
+   height: 53px;
+   opacity: 0;
+}
+
+.ctaPara {
+   background-position: -240px -15px;
+   left: 462px;
+   top: 0px;
+   width: 152px;
+   height: 54px;
+   opacity: 0;
+}
+
+.ctaTriRight {
+   background-position: -400px -75px;
+   left: 580px;
+   top: -21px;
+   width: 53px;
+   height: 53px;
+   opacity: 0;
+}
+
+.ctaRect {
+   background-position: -240px -75px;
+   left: 441px;
+   top: 20px;
+   width: 152px;
+   height: 54px;
+   opacity: 0;
+}
+
+/***********************************
+ PLACE YOUR CUSTOM SPRITE CSS BELOW
+ .sampleName is safe to delete
+ **********************************/
+
+.bottomTriangle0 {
+    background-position: -365px -297px;
+    width: 77px;
+    height: 38px;
+    opacity: 0;
+}
+
+.bottomTriangle1 {
+    background-position: -279px -297px;
+    width: 77px;
+    height: 38px;
+    opacity: 0;
+}
+
+.bottomTriangle2 {
+    background-position: -240px -237px;
+    width: 112px;
+    height: 38px;
+    opacity: 0;
+}
+
+.pinSolid {
+    background-position: -15px -228px;
+    width: 36px;
+    height: 45px;
+    opacity: 0;
+}
+
+.pinPart0 {
+    background-position: -70px -225px;
+    width: 17px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart1 {
+    background-position: -104px -226px;
+    width: 16px;
+    height: 8px;
+    opacity: 0;
+}
+
+.pinPart2 {
+    background-position: -136px -225px;
+    width: 17px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart3 {
+    background-position: -69px -249px;
+    width: 18px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart4 {
+    background-position: -103px -250px;
+    width: 18px;
+    height: 17px;
+    opacity: 0;
+}
+
+.pinPart5 {
+    background-position: -136px -249px;
+    width: 18px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart6 {
+    background-position: -169px -244px;
+    width: 17px;
+    height: 17px;
+    opacity: 0;
+}
+
+.pinPart7 {
+    background-position: -197px -244px;
+    width: 17px;
+    height: 17px;
+    opacity: 0;
+}
+
+.pinPart8 {
+    background-position: -69px -277px;
+    width: 17px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart9 {
+    background-position: -103px -277px;
+    width: 18px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart10 {
+    background-position: -138px -277px;
+    width: 17px;
+    height: 9px;
+    opacity: 0;
+}
+
+.pinPart11 {
+    background-position: -169px -277px;
+    width: 18px;
+    height: 9px;
+    opacity: 0;
+}
